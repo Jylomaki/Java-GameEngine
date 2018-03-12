@@ -1,8 +1,7 @@
-package display._2D;
+package engine._2D;
 
 import java.util.ArrayList;
 
-import engine._2D.Entity2D;
 import engine._2D.physic.Collision2D;
 
 public class CollisionComputer {

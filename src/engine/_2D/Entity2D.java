@@ -79,7 +79,7 @@ public class Entity2D extends Entity{
 	}
 
 	public void addColliderDiskFromSprite() {
-		this.collider = new ColliderDisk(this.sprite.centerPoint, this.position.getTranslate(), this.sprite.radius);
+		this.collider = sprite.getColliderDisk(this.position.getTranslate());
 		this.activeHitBox = true;
 	}
 	

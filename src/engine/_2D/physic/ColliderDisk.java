@@ -41,20 +41,33 @@ public class ColliderDisk extends Collider2D{
 			System.out.println("ColliderDisk: This kind of collider is not handled yet");
 		return null;
 	}
+	
+	public Vector2D getActualPosition() {
+		return centerPoint.add_copy(position);
+	}
+	
 	private Collision2D collideDisk(Entity2D e) {
 		Collision2D c = null;
 		ColliderDisk thatCollider = (ColliderDisk) e.collider;
 		Vector2D thatCenterPoint = Vector2D.add(thatCollider.centerPoint, thatCollider.position);
 		Vector2D thisCenterPoint = Vector2D.add(this.centerPoint, this.position);
 		
-		Vector2D centerToCenter = Vector2D.sub(thisCenterPoint, thatCenterPoint);
-		if(centerToCenter.length() < this.radius + thatCollider.radius) {
+		c = collision_check(thisCenterPoint,  this.radius, thatCenterPoint, thatCollider.radius);
+				
+		if(c != null)
+			c.collidedEntity = e;
+		return c;
+	}
+	
+	public static Collision2D collision_check(Vector2D a, double radius_a, Vector2D b, double radius_b) {
+		Collision2D c = null;
+		Vector2D centerToCenter = Vector2D.sub(a, b);
+		if(centerToCenter.length() < radius_a + radius_b) {
 			Vector2D normal = Vector2D.normalized(centerToCenter);
-			Vector2D collisionPoint = Vector2D.add(thatCenterPoint, Vector2D.time(normal, thatCollider.radius));
+			Vector2D collisionPoint = Vector2D.add(b, Vector2D.time(normal, radius_b));
 			
-			c = new Collision2D(collisionPoint, normal, e);
+			c = new Collision2D(collisionPoint, normal, null);
 		}
-		
 		return c;
 	}
 

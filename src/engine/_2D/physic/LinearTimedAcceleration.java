@@ -31,10 +31,10 @@ public class LinearTimedAcceleration extends Actuator{
 			System.out.println("LinearTimedAccel: qty of mvt to convey:" + targetSpeed.time_copy(uptime));
 		if(time < uptime) {
 			this.uptime -= time;
-			e.speed.getTranslate().add(targetSpeed.time_copy(time));
+			e.speed.getTranslate().add_in_place(targetSpeed.time_copy(time));
 		}
 		else {
-			e.speed.getTranslate().add(targetSpeed.time_copy(uptime));
+			e.speed.getTranslate().add_in_place(targetSpeed.time_copy(uptime));
 			e.remove(this);
 		}
 	}

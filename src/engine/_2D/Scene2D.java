@@ -2,7 +2,6 @@ package engine._2D;
 
 import java.util.ArrayList;
 
-import display._2D.CollisionComputer;
 import engine.FPS_counter;
 import engine.blueprint.Scene;
 import game.spriteManager.SpriteManager;

@@ -21,7 +21,7 @@ public class DevellopementMainTest {
 		F.addKeyListener(kbListener);
 		Inputs.keyboard = kbListener.controller;
 		
-		Scene2D scene = new TestScene_Actuator_Collider();
+		Scene2D scene = new TestScene_Actuator_Collider();// change here to check other tests
 		Scene2DDisplay sceneDisplay = new Scene2DDisplay(scene);
 		
 		F.add(sceneDisplay);

@@ -74,8 +74,8 @@ public class Transformation2D {
 	}
 	
 	public void concatenate_in_place(Transformation2D b) {
-		this.translate.add(b.translate);
-		this.scale.time(b.scale);
+		this.translate.add_in_place(b.translate);
+		this.scale.time_in_place(b.scale);
 		this.rotation += b.rotation;
 	}
 	
@@ -86,13 +86,18 @@ public class Transformation2D {
 	}
 	
 	public void factor_in_place(double f) {
-		this.translate.time(f);
-		this.scale.linearScale(f);
+		this.translate.time_in_place(f);
+		this.scale.linearScale_in_place(f);
 		this.rotation *= f;
 	}
 	
 	public Transformation2D factor_copy( double f) {
-		return new Transformation2D(Vector2D.time(translate, f),Vector2D.linearScale(scale, f),this.rotation*f);
+		return new Transformation2D(Vector2D.time(translate, f),Vector2D.linearScale_copy(scale, f),this.rotation*f);
+	}
+
+
+	public AffineTransform toAffinetransform() {
+		return this.toAffinetransform(new Vector2D());
 	}
 	
 }

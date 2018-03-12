@@ -1,4 +1,4 @@
-package com.gmail.bernabe.laurent.jogl.spinning_sphere; 
+/*package com.gmail.bernabe.laurent.jogl.spinning_sphere; 
 
 import java.awt.event.WindowAdapter; 
 import java.awt.event.WindowEvent; 
@@ -40,3 +40,4 @@ public class MainFrame extends JFrame {
     private static final long serialVersionUID = -1227038124975588633L; 
 
 } 
+*/

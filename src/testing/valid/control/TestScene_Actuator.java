@@ -18,7 +18,7 @@ public class TestScene_Actuator extends Scene2D{
 		entity.speed.rotation = (float) Math.toRadians((double)90);
 		entity.position.setTranslate(new Vector2D(100.0,100.0));
 		entity.debug = true;
-		entity.addActuator(new TestActuator(engine.input.Inputs.keyboard));
+		entity.addActuator(new TestActuatorController(engine.input.Inputs.keyboard));
 		this.entities.add(entity);
 	}
 

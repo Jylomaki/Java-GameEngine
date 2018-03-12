@@ -1,6 +1,8 @@
 package engine._2D;
 
-public class Vector2D {
+import java.awt.geom.Point2D;
+
+public class Vector2D extends Point2D{
 	private double x;
 	private double y;
 	
@@ -43,25 +45,38 @@ public class Vector2D {
 	public double length() {
 		return length(this);
 	}
-	public void time(double b) {
+	public Vector2D time_in_place(double b) {
 		x *= b;
 		y *= b;
+		return this;
 	}
-	public void time(Vector2D b) {
+	public Vector2D time_in_place(Vector2D b) {
 		x *= b.x;
 		y *= b.y;
+		return this;
 	}
-	public void add(Vector2D b) {
+	public Vector2D add_in_place(Vector2D b) {
 		x += b.x;
 		y += b.y;
+		return this;
 	}
-	public void sub(Vector2D b) {
+	public Vector2D sub_in_place(Vector2D b) {
 		x -= b.x;
 		y -= b.y;
+		return this;
 	}
-	public void linearScale(double f) {
+	
+	public Vector2D sub_copy(Vector2D b) {
+		return Vector2D.sub(this, b);
+	}
+	public Vector2D add_copy(Vector2D b) {
+		return Vector2D.add(this, b);
+	}
+	
+	public Vector2D linearScale_in_place(double f) {
 		x = Math.pow(x, f);
 		y = Math.pow(y, f);
+		return this;
 	}
 	
 	
@@ -104,7 +119,7 @@ public class Vector2D {
 	 * @param f the factor of scaling
 	 * @return scaling factored scaling factor
 	 */
-	public static Vector2D linearScale(Vector2D a, double f) {
+	public static Vector2D linearScale_copy(Vector2D a, double f) {
 		return new Vector2D(Math.pow(a.x, f), Math.pow(a.y, f));
 	}
 	
@@ -114,4 +129,11 @@ public class Vector2D {
 	/*static Vector2D vec_by_mat(Vector2D v, Matrix m) {
 		return new Vector2D();
 	}*/
+
+	@Override
+	public void setLocation(double x, double y) {
+		this.setX(x);
+		this.setY(y);
+		
+	}
 }

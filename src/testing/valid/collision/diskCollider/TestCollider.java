@@ -51,7 +51,7 @@ public class TestCollider extends Actuator{
 			if(debug)
 				System.out.println("Collider: collision returned normal:" + c.normal_at_impact);
 				
-			e.speed.getTranslate().add(c.normal_at_impact.time_copy(repulsionStrength));
+			e.speed.getTranslate().add_in_place(c.normal_at_impact.time_copy(repulsionStrength));
 			e.addActuator(new LinearTimedAcceleration(c.normal_at_impact.time_copy(-repulsionStrength), this.animation_total_time));
 		}
 		

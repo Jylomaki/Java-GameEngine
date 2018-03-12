@@ -4,6 +4,7 @@ import engine._2D.Entity2D;
 import engine._2D.Scene2D;
 import engine._2D.Vector2D;
 import game.spriteManager.SpriteManager;
+import testing.valid.control.TestActuatorController;
 
 public class TestScene_Actuator_Collider extends Scene2D{
 	SpriteManager sprites;
@@ -24,7 +25,7 @@ public class TestScene_Actuator_Collider extends Scene2D{
 		entity.speed.rotation = (float) Math.toRadians((double)90);
 		entity.position.setTranslate(new Vector2D(100.0,100.0));
 		entity.debug = false;
-		entity.addActuator(new TestActuator(engine.input.Inputs.keyboard));
+		entity.addActuator(new TestActuatorController(engine.input.Inputs.keyboard));
 		entity.addActuator(new TestCollider());
 		entity.addColliderDiskFromSprite();
 		this.entities.add(entity);
