@@ -10,5 +10,6 @@ J'M - Game Engine
   - An actuator system ( stuff that make your stuff have behaviour)
   - Collision detection
   
-  There is a simple example if you want to see, no game have been implemented yet.
- 
+  There is a simple example if you want to see, no game have been implemented yet:
+  Use the DevellopmentMainTest to launch a quick test.
+  (ZQSD to move, french keyboard)
