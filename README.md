@@ -5,9 +5,12 @@ J'M - Game Engine
   
   Right now it support: 
   - Sprite display
-  - Round and radius segment hit Box
-  - Hitbox auto detection from sprite (you need to choose the type of hitbox)
-  - An actuator system ( stuff that make your stuff have behaviour)
+  - HitBox:
+    - Circle
+    - Segment
+    - Radius extended Segment
+  - Hitbox auto detection from sprite
+  - An actuator system ( stuff that make your stuff have *behaviour*)
   - Collision detection
   
   There is a simple example if you want to see, no game have been implemented yet:
